@@ -1,0 +1,739 @@
+html,body {
+	height: 100%;
+	width: 100%;
+	margin: 0; 
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	/*background-color: #FFE;*/
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	border-radius: 2px;
+}
+ 
+::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+#login{
+	display: block;
+	position: fixed;
+	z-index: 150;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: #fff;
+}
+
+#loginF{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 420px;
+	width: 350px;
+	margin: -230px 0 0 -195px;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #555;
+	border-radius: 20px;
+}
+
+#loginF button{
+	padding: 10px;
+	width: 150px;
+	font-size: 16px;
+	font-family: Charcoal, Arial, Helvetica, sans-serif;
+	margin:auto;
+	display:block;
+	cursor:pointer;
+}
+
+.group {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.group label{
+	font-size: 14px;
+	font-family: Charcoal, Arial, Helvetica, sans-serif;
+	margin: 3px;
+}
+
+.formIn{
+	font-size: 16px;
+	padding: 10px;
+	display: block;
+	width: 100%;
+	border: 1px solid #ccc;
+	margin-top: 5px;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#chat{
+	display: none;
+}
+
+#login,#chat{
+	width: 100%;
+	height: 100%;
+}
+
+.floatDiv{
+	display: none;
+	position:absolute;
+	float:left;
+	top: 2px;
+	left: 2px;
+	background-color: #fff59c;
+	z-index: 100;
+	border-radius: 5px;
+	font-size: 5vh;
+	width: -moz-calc(100% - 4px);
+	width: -webkit-calc(100% - 4px);
+	width: calc(100% - 4px);
+	height: -moz-calc(100% - 4px);
+	height: -webkit-calc(100% - 4px);
+	height: calc(100% - 4px);
+}
+
+.floatDivCloseBtn{
+	position:absolute;
+	float:right;
+	top: 0px;
+	right: 0px;
+	width: 85px;
+	height: 50px;
+	background-color: #F00;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	font-size: 42px;
+	cursor:pointer;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 1px solid #333;
+	z-index: 100;
+}
+
+/* ширина менее 500px 
+@media screen and (max-width:500px), screen and (orientation: portrait) {
+	.floatDivCloseBtn{
+		width: 10vh;
+		height: 10vh;
+	}
+}
+*/
+
+.leftpage{
+	display:block;
+	float: left;
+	border: 1px solid gray;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 0px;
+	width: 190px;
+	/*background-color: #FCC;*/
+	padding: 3;
+	margin: 2;
+	/*
+		сумма складывается из: (padding3*2)+(margin2*2)+(border1*2)+(?chattab height)
+	*/
+	height: -moz-calc(100% - 12px);
+	height: -webkit-calc(100% - 12px);
+	height: calc(100% - 12px);
+}
+
+.leftpage1{
+	width: 188px;
+	/*background-color: #F45;*/
+	border: 1px solid #dcdcdc;
+	border-radius: 8px;
+	position:relative;
+}
+
+#leftpage1_1{
+	margin: 0px 0px 2px 0px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края. */
+}
+
+.rightpage1{
+	width: 300px;
+	/*background-color: #FE5;*/
+	border: 1px solid #dcdcdc;
+	border-radius: 8px;
+	position:relative;
+}
+
+#rightpage1_1{
+	height: 410px; /* 410 - Размер взят на угад */
+	margin: 0px 0px 2px 0px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края. */
+}
+
+.title{
+	width: 100%;
+	overflow-x: auto;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Tahoma, Impact, Charcoal, sans-serif;
+	font-weight: bold;
+	color:#555;
+	text-shadow: 1px 1px 5px gray;
+}
+
+
+.bottomBar{
+	width: -moz-calc(100% - 8px);
+	width: -webkit-calc(100% - 8px);
+	width: calc(100% - 8px);
+	overflow: hidden;
+	white-space: nowrap;
+	padding-left: 8px;
+	/*background-color: #AF8;*/
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+#bottomBarAnnotation{
+	height: 30px;
+	/*background-color: #AF0;*/
+}
+
+#bottomBarPhoto{
+	height: 60px;
+	width: -moz-calc(100% - 8px);
+	width: -webkit-calc(100% - 8px);
+	width: calc(100% - 8px);
+	padding-left: 8px;
+	/*background-color: #AF8;*/
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+#btnUpload{
+	width: initial;
+}
+
+
+.btnst{
+	width: 30px;
+	height: 25px;
+	text-align: center;
+	margin-top: 2px;
+	margin-right: 1px;
+	cursor: pointer;
+}
+
+
+.btnBar{
+	height: 40px;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+	/*background-color: #FEE;*/
+}
+
+#btnChat,#btnUser,#btnAnnotation,#btnPhoto{
+	display:none;
+}
+
+.msgBar{
+	width: 100%;
+	white-space: nowrap;
+	height: 54px;
+}
+
+.msgBarDivInput{
+	float: left;
+	width: -moz-calc(100% - 55px);
+	width: -webkit-calc(100% - 55px);
+	width: calc(100% - 55px);
+}
+
+.msgBarDivInput input { 
+	border: 0;
+	padding: 10px;
+	margin: 5; 
+	resize: none;
+	font-size: 22px;
+	width: -moz-calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	width: calc(100% - 10px);
+	background-color: #ddd;
+	border-radius: 15px;
+}
+
+.msgBar input:focus {
+	outline: none;
+}
+
+#annotation {
+	overflow: auto;
+	padding: 10;
+	/*background-color: #AF0;*/
+}
+
+#annotation:focus {
+	outline: none;
+}
+
+#photo {
+	/*background-color: #dd7;*/
+	overflow: auto;
+}
+
+.msgDivBtn{
+	float: left;
+	top: 0;
+	width: 49px;
+	height: 100%;
+	text-align:center;
+	display: flex; /* !!! почитать про этот  display*/
+}
+
+.msgBar img{
+	cursor:pointer;
+	margin: auto auto;
+}
+
+.chatlist{
+	width: 100%;
+	overflow-x: auto;
+	white-space: nowrap;
+	/*background-color: #FC7;*/
+}
+
+.chatlist ul{
+	list-style: none;
+	margin: 0;
+	padding: 5;
+}
+
+.chatlist li{
+	cursor:pointer;
+}
+
+.chatlist li:hover{
+	background-color: #EEE;
+}
+
+.chatlist a {
+	margin-left: 5px;
+}
+/*
+.chatlist sup {
+	font-size: 8px;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #381dd0;
+	border-radius: 5px;
+	padding-left: 2px;
+	padding-right: 3px;
+	margin-left: 5px;
+}
+*/
+.userlist{
+	width: 100%;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: auto;
+	white-space: nowrap;
+	/*background-color: #F7C;*/
+}
+
+.userlist ul{
+	list-style: none;
+	margin: 0;
+	padding: 5;
+}
+
+.userlist .me1{
+	background-color: #F7C;
+}
+
+.userlist li{
+	cursor:pointer;
+}
+
+.userlist li:hover{
+	background-color: #EEE;
+}
+
+.centerpage{
+	display:block;
+	float: left;
+	border: 1px solid gray;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	/*
+		сумма складывается из: (padding5*2)+(margin2*2)+(border1*2)+(chattab height)
+	*/
+	height: -moz-calc(100% - 16px);
+	height: -webkit-calc(100% - 16px);
+	height: calc(100% - 16px);
+	
+	padding: 5;
+	margin: 2px 2px 2px 0px;
+	transition: all .1s linear;
+}
+
+.chatpage{
+	display:block;
+	border: 1px solid #BBB;
+	border-radius: 8px;
+	overflow-y: auto;
+	background-color: #CCF;
+}
+
+.rightpage{
+	display:block;
+	float: right;
+	border: 1px solid gray;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 8px;
+	width: 350px;
+	/*background-color: #FC1;*/
+	padding: 3;
+	margin: 2px 2px 2px 0px;
+	/*
+		сумма складывается из: (padding3*2)+(margin2*2)+(border1*2)+(?chattab height)
+	*/
+	height: -moz-calc(100% - 12px);
+	height: -webkit-calc(100% - 12px);
+	height: calc(100% - 12px);
+	transition: all .1s linear;
+}
+
+.chat ul{
+	list-style: none;
+	margin: 0;
+	padding: 5;
+}
+
+.chat ul li{
+	display:inline-block;
+	clear: both;
+	padding: 10px 15px 10px 15px;
+	margin-bottom: 2px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.chat .info{
+	float: left;
+	text-align: left;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size: 12px;
+	padding: 4px 15px 4px 15px;
+	border-radius: 8px;
+}
+
+.info-in{
+	background-color: #7f7;
+}
+
+.info-out{
+	background-color: #f77;
+}
+
+.info-an{
+	background-color: #f7f;
+}
+
+.info-file{
+	background-color: #7ff;
+}
+
+.me{
+	float: left;
+	background: #eee;
+	margin: 4px 100px 4px 10px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края. */
+	border-top-left-radius: 21px;
+	border-top-right-radius: 21px;
+	border-bottom-right-radius: 21px;
+}
+
+.him{
+	float: right;
+	background: #dadaff;
+	margin: 4px 10px 4px 100px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края. */
+	border-top-right-radius: 21px;
+	border-top-left-radius: 21px;
+	border-bottom-left-radius: 21px;
+}
+
+.autor{
+	color: #444;
+	font-size: 10px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	padding: 0px 0px 3px 0px;
+}
+
+.time{
+	color: #555;
+	font-size: 10px;
+	font-family: Tahoma, Arial, sans-serif;
+	/*font-weight: bold;*/
+	font-style: italic;
+	text-align: right;
+	display: block;
+}
+
+#status{
+	position:absolute;
+	float:right;
+	bottom: 10px;
+	left: 10px;
+	background-color: #fff59c;
+	z-index: 100;
+	border-radius: 7px;
+	width: 90px;
+	height: 20px;
+	border: 1px solid #BBB;
+}
+
+#status #detail{
+	display: none;
+	position:absolute;
+	bottom:0;
+	width: 100%;
+	height: 380px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+
+
+/* ширина свыше 500px и менее 1200*/
+@media screen and (min-width:501px) and (max-width: 1200px) {
+	.leftpage{
+		display: block;
+	}
+	.rightpage{
+		display: none;
+	}
+	.centerpage{
+		/* 
+			сумма складывается из: #leftpage-width+(padding5*4)+(margin1*3)+(border1*4) / 190+20+7=217px
+		*/
+		width: -moz-calc(100% - 217px);
+		width: -webkit-calc(100% - 217px);
+		width: calc(100% - 217px);
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+	
+	.chat ul li{
+		font-size: 28px;
+	}
+
+	#btnAnnotation,#btnPhoto{
+		display: inline-block;
+		position: relative;
+		outline: none;
+	}
+	
+	
+	
+	.btnst{
+		width: 6vh;
+		height: 6vh;
+		font-size: 3vh;
+	}
+	#bottomBarAnnotation{
+		height: 7vh;
+	}
+	#bottomBarPhoto{
+		height: 11vh;
+	}
+	#uploadFile{
+		height: 11px;
+	}
+}
+
+/* ширина свыше 1201px */
+@media screen and (min-width:1201px) {
+	.leftpage{
+		display: block;
+	}
+	.centerpage{
+		/* 
+			сумма складывается из: 1201-576
+		*/
+		width: 625px;
+	}
+		/* 
+			сумма складывается из: #leftpage-width+centerpage-width+(padding5*6)+(margin3*3)+(border1*6) / 190+625+36=851px
+		*/
+	.rightpage{
+		display: block;
+		width: -moz-calc(100% - 851px);
+		width: -webkit-calc(100% - 851px);
+		width: calc(100% - 851px);
+	}
+}
+
+/* ширина менее 500px */
+@media screen and (max-width:500px), screen and (orientation: portrait) {
+	.leftpage{
+		display: none;
+	}
+	.rightpage{
+		display: none;
+	}
+	#btn-people{
+		display:block;
+	}
+	.centerpage{
+		/*
+			сумма 16 складывается из: (padding5*2)+(margin2*2)+(border1*2)
+		*/
+		font-size: 34px;
+		width: -moz-calc(100% - 16px);
+		width: -webkit-calc(100% - 16px);
+		width: calc(100% - 16px);
+		margin: 2px;
+		border-radius: 8px;
+	}
+	
+	.chat ul li{
+		font-size: 34px;
+	}
+	
+	.btnBar{
+		height: 70px;
+	}
+	
+	.btnBar button{
+		height: 62px;
+		font-size: 32px;
+	}
+	
+	.msgBar{
+		height: 65px;
+	}
+	.msgBarDivInput input { 
+		font-size: 32px;
+	}
+	
+	#btnChat,#btnUser,#btnAnnotation,#btnPhoto{
+		display: inline-block;
+		position: relative;
+		outline: none;
+	}
+	
+	.btnst{
+		width: 6vh;
+		height: 6vh;
+		font-size: 3vh;
+	}
+	#bottomBarAnnotation{
+		height: 7vh;
+	}
+	#bottomBarPhoto{
+		height: 11vh;
+	}
+	#uploadFile{
+		height: 11px;
+	}
+	#status{
+		top: 10px;
+		left: auto;
+		right: 10px;
+	}
+}
+
+.chatlistitem{
+	font-weight: bold;
+	color: #00F;
+	text-decoration: none;
+}
+
+.chatlistactive{
+	background-color: #ffeb3b;
+}
+
+.chatlistitemUnread{
+	visibility: hidden;
+	background-color: #F00;
+	font-weight: bold;
+	font-size: 12px;
+	color: #FFF;
+	margin-left: 2px;
+	border-radius: 3px;
+	padding: 0px 2px 0px 1px; /* Поочередно устанавливается отступ от верхнего, правого, нижнего и левого края. */
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	80% {
+		opacity: 0;
+	}
+}
+
+.btnMore{
+	text-align: center;
+	background-color: #fff;
+	margin-top: 3px;
+	margin-right: 18px;
+	margin-left: 18px;
+	border-radius: 10px;
+}
+
+.btnMore a{
+	text-decoration: none;
+}
+
+.closechat{
+	cursor:pointer;
+}
+
+
+#uploadFile{
+	width: -moz-calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	width: calc(100% - 10px);
+	height: 60px;
+	/*background-color: #f9f;*/
+	/*margin-right: 10px;
+	margin-left: 10px;*/
+}
+
+#uploadFile progress{
+	margin-top: 3px;
+	height: 10px;
+	width: 100%;
+}
+
+input[type="checkbox"] {
+	cursor:pointer;
+}

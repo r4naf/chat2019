@@ -1,0 +1,18 @@
+{
+	"name": "Chat2019",
+	"version": "1.0.0",
+	"description": "Chat 2019",
+	"main": "chat2019.html",
+	"scripts": {
+		"start": "node chat2019.js"
+	},
+	"author": "Zykin Yuriy",
+	"license": "MIT",
+	"dependencies": {
+		"debug": "^4.1.1",
+		"express": "^4.16.4",
+		"mysql": "^2.16.0",
+		"socket.io": "^2.2.0",
+		"socketio-file-upload": "^0.7.0"
+	}
+}
